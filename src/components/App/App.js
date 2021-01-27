@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import AboutPage from '../../routes/AboutPage/AboutPage'
 import FAQPage from '../../routes/FAQPage/FAQPage'
 import FindUnionPage from '../../routes/FindUnionPage/FindUnionPage'
+import Header from '../Header/Header';
 import './App.css';
 
 export default class App extends Component {
@@ -17,6 +18,7 @@ export default class App extends Component {
     const { hasError } = this.state
       return (
         <div className="App">
+          <Header/>
           <main>
             {hasError && (
               <p className='error'>There was an error! Oh no!</p>
