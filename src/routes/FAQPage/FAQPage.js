@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import QuestionSection from '../../components/QuestionSection/QuestionSection'
-import QuestionTab from '../../components/QuestionTab/QuestionTab'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
 import './FAQPage.css'
 
@@ -53,7 +52,7 @@ export default class FAQPage extends Component {
 
         return(
             <section className='faq-page'>
-               <SectionHeading className='faq-heading' text='Frequently Asked Questions'/>
+                <SectionHeading className='faq-heading' text='Frequently Asked Questions'/>
                 <QuestionSection questions={questions}/>
             </section>
         )
