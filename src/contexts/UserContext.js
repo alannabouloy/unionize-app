@@ -10,6 +10,7 @@ const UserContext = React.createContext({
     clearError: () => {},
     getIndustries: () => {},
     getUnions: () => {},
+    getUnionsByIndustry: () => {},
 })
 
 export default UserContext
@@ -49,6 +50,15 @@ export class UserProvider extends Component {
         .then(res => {
             const results = res
             this.setState({ results })
+            
+        })
+    }
+
+    getUnionsByIndustry = (page, industry, search) => {
+        ApiService.getUnionsByIndustry(page, industry, search)
+        .then(res => {
+            const results = res
+            this.setState({ results })
             console.log('state set to: ', results)
         })
     }
@@ -63,6 +73,7 @@ export class UserProvider extends Component {
             clearError: this.clearError,
             getIndustries: this.getIndustries,
             getUnions: this.getUnions,
+            getUnionsByIndustry: this.getUnionsByIndustry,
         }
 
         return (

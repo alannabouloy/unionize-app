@@ -14,7 +14,8 @@ export default class App extends Component {
 
   componentDidMount(){
     this.context.getIndustries()
-    this.context.getUnions(1)
+    this.context.getUnionsByIndustry(1, 'Industry 1')
+    this.context.getUnionsByIndustry(1, 'Industry 1', 'bun')
   }
 
   static getDerivedStateFromError(error){

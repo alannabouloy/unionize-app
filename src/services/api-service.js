@@ -37,6 +37,25 @@ const ApiService = {
     },
 
     getUnionsByIndustry(page, industry, search){
+        if(search){
+            return fetch(`${config.API_ENDPOINT}/unions/industry/?page=${page}&industry=${industry}&q=${search}`, {
+                method: 'GET',
+            })
+            .then(res => 
+                (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+            )
+        }
+
+        return fetch(`${config.API_ENDPOINT}/unions/industry/?page=${page}&industry=${industry}`, {
+            method: 'GET',
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        )
         //get page of unions filtered by industry with option to filter by search term
     }
 }
