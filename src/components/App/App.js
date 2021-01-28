@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Route } from 'react-router-dom';
+import UserContext from '../../contexts/UserContext';
 import AboutPage from '../../routes/AboutPage/AboutPage'
 import FAQPage from '../../routes/FAQPage/FAQPage'
 import FindUnionPage from '../../routes/FindUnionPage/FindUnionPage'
@@ -8,6 +9,13 @@ import './App.css';
 
 export default class App extends Component {
   state = { hasError: false }
+
+  static contextType = UserContext
+
+  componentDidMount(){
+    this.context.getIndustries()
+    this.context.getUnions(1)
+  }
 
   static getDerivedStateFromError(error){
     console.error(error)
