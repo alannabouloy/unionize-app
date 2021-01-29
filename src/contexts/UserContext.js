@@ -3,7 +3,8 @@ import ApiService from '../services/api-service'
 
 const UserContext = React.createContext({
     error: null,
-    industry: {},
+    industry: '',
+    search: '',
     industries: [],
     results: {},
     setError: () => {},
@@ -11,6 +12,9 @@ const UserContext = React.createContext({
     getIndustries: () => {},
     getUnions: () => {},
     getUnionsByIndustry: () => {},
+    handleDropdownChange: () => {},
+    handleSearchBarChange: () => {},
+    onSearchSubmit: () => {},
 })
 
 export default UserContext
@@ -20,9 +24,14 @@ export class UserProvider extends Component {
         super(props)
         const state = {
             error: null,
-            industry: {},
+            industry: '',
+            search: '',
             industries: [],
-            results: {}
+            results: {
+                count: 0,
+                pageCount: 0,
+                unions: []
+            }
         }
 
         this.state = state;
@@ -63,17 +72,49 @@ export class UserProvider extends Component {
         })
     }
 
+    handleDropdownChange = ev => {
+        const industry = ev.target.value
+        this.setState({ industry })
+    }
+
+    handleSearchBarChange = ev => {
+        const search = ev.target.value
+        this.setState({ search })
+    }
+
+    clearForm = () => {
+        document.getElementById('search-bar').value = ''
+        document.getElementById('dropdown').value = ''
+        this.setState({ search: '' })
+        this.setState({ industry: ''})
+    }
+
+    onSearchSubmit = ev => {
+        ev.preventDefault()
+        const {industry, search} = this.state
+        this.clearForm()
+        if(industry){
+            this.getUnionsByIndustry(1, industry, search)
+        } else {
+            this.getUnions(1, search)
+        }
+    }
+
     render(){
         const value = {
             error: this.state.error,
             industry: this.state.industry,
             industries: this.state.industries,
             results: this.state.results,
+            search: this.state.search,
             setError: this.setError,
             clearError: this.clearError,
             getIndustries: this.getIndustries,
             getUnions: this.getUnions,
             getUnionsByIndustry: this.getUnionsByIndustry,
+            handleDropdownChange: this.handleDropdownChange,
+            handleSearchBarChange: this.handleSearchBarChange,
+            onSearchSubmit: this.onSearchSubmit,
         }
 
         return (
