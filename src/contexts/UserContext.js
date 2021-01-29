@@ -7,6 +7,8 @@ const UserContext = React.createContext({
     search: '',
     industries: [],
     results: {},
+    pageNeighbors: 0,
+    currentPage:1,
     setError: () => {},
     clearError: () => {},
     getIndustries: () => {},
@@ -31,7 +33,9 @@ export class UserProvider extends Component {
                 count: 0,
                 pageCount: 0,
                 unions: []
-            }
+            },
+            pageNeighbors: 0,
+            currentPage: 1,
         }
 
         this.state = state;
@@ -107,6 +111,8 @@ export class UserProvider extends Component {
             industries: this.state.industries,
             results: this.state.results,
             search: this.state.search,
+            pageNeighbors: this.state.pageNeighbors,
+            currentPage: this.state.currentPage,
             setError: this.setError,
             clearError: this.clearError,
             getIndustries: this.getIndustries,
