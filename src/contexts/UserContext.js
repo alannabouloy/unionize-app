@@ -17,6 +17,9 @@ const UserContext = React.createContext({
     handleDropdownChange: () => {},
     handleSearchBarChange: () => {},
     onSearchSubmit: () => {},
+    handleMoveLeft: () => {},
+    handleMoveRight: () => {},
+    handleClick: () => {},
 })
 
 export default UserContext
@@ -63,7 +66,7 @@ export class UserProvider extends Component {
         .then(res => {
             const results = res
             this.setState({ results })
-            
+            this.setState({currentPage: page})
         })
     }
 
@@ -72,7 +75,7 @@ export class UserProvider extends Component {
         .then(res => {
             const results = res
             this.setState({ results })
-            console.log('state set to: ', results)
+            this.setState({currentPage: page})
         })
     }
 
@@ -93,8 +96,18 @@ export class UserProvider extends Component {
         this.setState({ industry: ''})
     }
 
+    checkAndClear = () => {
+        if(document.getElementById('dropdown').value === ''){
+            this.setState({industry: ''})
+        }
+        if(document.getElementById('search-bar').value === ''){
+            this.setState({search: ''})
+        }
+    }
+
     onSearchSubmit = ev => {
         ev.preventDefault()
+        this.checkAndClear()
         const {industry, search} = this.state
         this.clearForm()
         if(industry){
@@ -103,6 +116,34 @@ export class UserProvider extends Component {
             this.getUnions(1, search)
         }
     }
+
+    handleMoveLeft = ev => {
+        ev.preventDefault()
+        this.goToPage(this.state.currentPage - (this.state.pageNeighbors * 2) - 1)
+    }
+
+    handleMoveRight = ev => {
+        ev.preventDefault()
+        this.goToPage(this.state.currentPage + (this.pageNeighbors * 2) + 1)
+    }
+
+    handleClick = page => evt => {
+        evt.preventDefault()
+        this.goToPage(page)
+    }
+
+    goToPage = page => {
+        const currentPage = Math.max(0, Math.min(page, this.state.results.pageCount))
+        this.setState({currentPage})
+        if(this.state.industry){
+            this.getUnionsByIndustry(currentPage, this.state.industry, this.state.search)
+        }
+        else{
+            this.getUnions(currentPage, this.state.search)
+        }
+
+    }
+
 
     render(){
         const value = {
@@ -121,6 +162,9 @@ export class UserProvider extends Component {
             handleDropdownChange: this.handleDropdownChange,
             handleSearchBarChange: this.handleSearchBarChange,
             onSearchSubmit: this.onSearchSubmit,
+            handleMoveLeft: this.handleMoveLeft,
+            handleMoveRight: this.handleMoveRight,
+            handleClick: this.handleClick,
         }
 
         return (
