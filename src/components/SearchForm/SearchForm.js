@@ -10,7 +10,7 @@ export default function SearchForm(props){
 
     return(
         <form id='js-search-form' onSubmit={e => context.onSearchSubmit(e)}>
-            <Dropdown industries={props.industries}/>
+            <Dropdown/>
             <SearchBar/>
             <SearchButton/>
         </form>
