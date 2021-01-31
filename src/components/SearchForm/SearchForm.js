@@ -10,8 +10,10 @@ export default function SearchForm(props){
 
     return(
         <form id='js-search-form' onSubmit={e => context.onSearchSubmit(e)}>
-            <Dropdown/>
-            <SearchBar/>
+            <div className='search-elements'>
+                <Dropdown/>
+                <SearchBar/>
+            </div>
             <SearchButton/>
         </form>
     )

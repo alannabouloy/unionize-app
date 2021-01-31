@@ -1,0 +1,26 @@
+.union-list{
+    width: 70vw;
+    height: 60vh;
+    margin: auto;
+    overflow: scroll;
+}
+.unions{
+    padding: 0px;
+}
+
+.unions li {
+    list-style: none;
+    background-color: #020E3C;
+    border-bottom: solid #ECa72C 5px;
+}
+
+.unions li:hover {
+    background-color: #ECa72C;
+    color: #020E3C;
+}
+
+.unions a {
+    width: 100%;
+    color: #ffffff;
+    text-decoration: none;
+}

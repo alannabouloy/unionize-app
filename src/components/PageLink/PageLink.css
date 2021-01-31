@@ -1,0 +1,20 @@
+.page-item {
+    border: solid gray 1px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+.page-item a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.active {
+    background-color: #020E3c;
+    color: white;
+}
+
+.active a {
+    color: white;
+}

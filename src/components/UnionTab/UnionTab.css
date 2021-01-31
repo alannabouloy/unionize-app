@@ -1,0 +1,17 @@
+.union {
+    padding: 5px;
+}
+
+.union h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px;
+}
+
+.union p {
+    font-family: 'Raleway', sans-serif;
+    margin: 5px;
+}
+
+.unions li {
+    margin-bottom: 10px;
+}
