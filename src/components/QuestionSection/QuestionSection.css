@@ -1,0 +1,19 @@
+.question-section {
+    width: 70vw;
+    height: 70vh;
+    margin: auto;
+    overflow: scroll;
+    border: solid gray 1px;
+    border-left: solid #020E3C 3px;
+}
+
+.questions li{
+    list-style: none;
+    width: 95%;
+    margin: auto;
+}
+
+.questions {
+    width: 100%;
+    padding: 0px;
+}
