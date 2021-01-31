@@ -1,0 +1,17 @@
+.heading {
+    background-color: #020e3c;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 2px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.heading h1 {
+    margin: 5px;
+    letter-spacing: 5px;
+}
+
+.break {
+    background-color: #FFFFFF;
+}

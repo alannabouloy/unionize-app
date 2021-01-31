@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #65655e;
+}
+.navlinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.navlinks li {
+    list-style: none;
+    flex: 1;
+    text-align: center;  
+}
+
+.navlinks a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: 'Raleway', sans-serif;
+}
+
+.navlinks a:visited {
+    color: #FFFFFF;
+}
+
+.navlinks li:hover, .navlinks li:active {
+    background-color: #b80018;
+}

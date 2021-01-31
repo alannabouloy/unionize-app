@@ -6,7 +6,7 @@ export default function Header(props){
     return(
         <header className='header'>
             <div className='heading'>
-                <h1>Unionize</h1>
+                <h1>UNIONIZE</h1>
             </div>
             <div className='break'>
             </div>
