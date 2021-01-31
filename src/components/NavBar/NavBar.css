@@ -1,5 +1,6 @@
 .navbar {
     background-color: #65655e;
+    margin-top: 0px;
 }
 .navlinks {
     display: flex;
