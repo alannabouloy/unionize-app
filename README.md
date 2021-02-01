@@ -14,7 +14,7 @@ Users can also navigate to FAQ section to learn more about what unions are and f
 
 ## Technology Used
 
-This app was built using React for the client and Express.js and Node.js for the server. The database was built up using PostgreSQL. [You can find the api repository here.](https://github.com/alannabouloy/unionize-server)
+This app was built using React for the client and Express.js and Node.js for the server. Styling was done using CSS. The database was built up using PostgreSQL. [You can find the api repository here.](https://github.com/alannabouloy/unionize-server)
 
 ## Upcoming Features
 
