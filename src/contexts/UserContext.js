@@ -37,7 +37,7 @@ export class UserProvider extends Component {
                 pageCount: 0,
                 unions: []
             },
-            pageNeighbors: 0,
+            pageNeighbors: 1,
             currentPage: 1,
         }
 
@@ -124,7 +124,7 @@ export class UserProvider extends Component {
 
     handleMoveRight = ev => {
         ev.preventDefault()
-        this.goToPage(this.state.currentPage + (this.pageNeighbors * 2) + 1)
+        this.goToPage(this.state.currentPage + (this.state.pageNeighbors * 2) + 1)
     }
 
     handleClick = page => evt => {

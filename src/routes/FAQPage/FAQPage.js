@@ -45,7 +45,7 @@ export default class FAQPage extends Component {
             {
                 question: `What if I can't find a union to fit my needs?`,
                 answer: <p>
-                    If you can't find a union, <a href='#'>here's a link to some resources for how to start your own.</a>
+                    If you can't find a union, <a href='https://www.ueunion.org/org_steps.html' alt='a link to www.ueunion.org' target='blank'>here's a link to some resources for how to start your own.</a>
                 </p>
             }
         ]

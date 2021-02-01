@@ -5,6 +5,9 @@ const ApiService = {
         //get all industries
         return fetch(`${config.API_ENDPOINT}/industries`, {
             method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${config.API_TOKEN}`
+            }
         })
         .then(res =>
             (!res.ok)
@@ -17,6 +20,9 @@ const ApiService = {
         if(search){
             return fetch(`${config.API_ENDPOINT}/unions/?page=${page}&q=${search}`, {
                 method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${config.API_TOKEN}`
+                }
             })
             .then(res =>
                 (!res.ok)
@@ -27,6 +33,9 @@ const ApiService = {
 
         return fetch(`${config.API_ENDPOINT}/unions/?page=${page}`, {
             method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${config.API_TOKEN}`
+            }
         })
         .then(res => 
             (!res.ok)
@@ -40,6 +49,9 @@ const ApiService = {
         if(search){
             return fetch(`${config.API_ENDPOINT}/unions/industry/?page=${page}&industry=${industry}&q=${search}`, {
                 method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${config.API_TOKEN}`
+                }
             })
             .then(res => 
                 (!res.ok)
@@ -50,6 +62,9 @@ const ApiService = {
 
         return fetch(`${config.API_ENDPOINT}/unions/industry/?page=${page}&industry=${industry}`, {
             method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${config.API_TOKEN}`
+            }
         })
         .then(res => 
             (!res.ok)
