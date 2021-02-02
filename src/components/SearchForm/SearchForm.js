@@ -2,7 +2,7 @@ import React from 'react'
 import UserContext from '../../contexts/UserContext'
 import Dropdown from '../Dropdown/Dropdown'
 import SearchBar from '../SearchBar/SearchBar'
-import SearchButton from '../SearchButton/SearchButton'
+import SubmitButton from '../SubmitButton/SubmitButton'
 import './SearchForm.css'
 
 export default function SearchForm(props){
@@ -14,7 +14,7 @@ export default function SearchForm(props){
                 <Dropdown/>
                 <SearchBar/>
             </div>
-            <SearchButton/>
+            <SubmitButton text='Search'/>
         </form>
     )
 }
