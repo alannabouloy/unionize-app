@@ -1,18 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
+import QuestionTab from "./QuestionTab";
 
+it("renders", () => {
+  const q = "question";
+  const a = "answer";
 
-import QuestionTab from './QuestionTab'
+  const div = document.createElement("div");
 
-it('renders', () => {
+  ReactDOM.render(<QuestionTab question={q} answer={a} />, div);
 
-    const q = 'question'
-    const a = 'answer'
-
-    const div = document.createElement('div')
-
-    ReactDOM.render(<QuestionTab question={q} answer={a}/>, div)
-
-    ReactDOM.unmountComponentAtNode(div)
-})
+  ReactDOM.unmountComponentAtNode(div);
+});

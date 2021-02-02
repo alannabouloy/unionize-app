@@ -1,0 +1,17 @@
+.comments li{
+    list-style: none;
+    width: 90%;
+    margin: auto;
+    border-left: solid #020E3C 3px ;
+}
+
+.comments h4 {
+    margin: 20px 0px 0px 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.comments p {
+    margin: 5px;
+    font-family: 'Raleway', sans-serif;
+
+}
