@@ -159,7 +159,6 @@ export class UserProvider extends Component {
 
   handleCommentChange = (ev) => {
     const comment = ev.target.value;
-    console.log(comment);
     this.setState({ comment });
   };
 
