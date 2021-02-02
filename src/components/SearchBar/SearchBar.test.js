@@ -1,12 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-import SearchBar from './SearchBar'
+import SearchBar from "./SearchBar";
 
-it('renders', () => {
-    const div = document.createElement('div')
+it("renders", () => {
+  const div = document.createElement("div");
 
-    ReactDOM.render(<SearchBar/>, div)
+  ReactDOM.render(<SearchBar />, div);
 
-    ReactDOM.unmountComponentAtNode(div)
-})
+  ReactDOM.unmountComponentAtNode(div);
+});
