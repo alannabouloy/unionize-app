@@ -4,6 +4,7 @@ import UserContext from '../../contexts/UserContext';
 import AboutPage from '../../routes/AboutPage/AboutPage'
 import FAQPage from '../../routes/FAQPage/FAQPage'
 import FindUnionPage from '../../routes/FindUnionPage/FindUnionPage'
+import UnionPage from '../../routes/UnionPage/UnionPage';
 import Header from '../Header/Header';
 import './App.css';
 
@@ -43,6 +44,10 @@ export default class App extends Component {
             <Route
               path={'/questions'}
               component={FAQPage}
+            />
+            <Route
+              path={'/union/:unionId'}
+              component={UnionPage}
             />
           </main>
         </div>

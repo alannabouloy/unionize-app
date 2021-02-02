@@ -72,6 +72,67 @@ const ApiService = {
             : res.json()
         )
         //get page of unions filtered by industry with option to filter by search term
+    },
+
+    getUnionById(unionId){
+        return fetch(`${config.API_ENDPOINT}/unions/${unionId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${config.API_TOKEN}`
+            }
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        )
+    },
+
+    getIndustryById(industryId){
+        return fetch(`${config.API_ENDPOINT}/industries/${industryId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${config.API_TOKEN}`
+            }
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        )
+    },
+
+    getComments(unionName){
+        return fetch(`${config.API_ENDPOINT}/comments/?union=${unionName}`, {
+            method: 'GET',
+            headers: {
+                'Authorization' : `Bearer ${config.API_TOKEN}`
+            }
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        )
+    },
+
+    postComment(unionName, comment){
+        const body = {
+            ...comment,
+            unionName
+        }
+        return fetch(`${config.API_ENDPOINT}/comments`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${config.API_TOKEN}`
+            },
+            body: JSON.stringify(body)
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        )
     }
 }
 
