@@ -117,16 +117,18 @@ const ApiService = {
     },
 
     postComment(unionName, comment){
-        const body = {
+        const raw = JSON.stringify({
             ...comment,
             unionName
-        }
+        })
+
         return fetch(`${config.API_ENDPOINT}/comments`, {
-            method: 'GET',
+            method: 'POST',
             headers: {
-                'Authorization': `Bearer ${config.API_TOKEN}`
+                'Authorization': `Bearer ${config.API_TOKEN}`,
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(body)
+            body: raw,
         })
         .then(res => 
             (!res.ok)

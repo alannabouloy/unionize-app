@@ -5,6 +5,8 @@ const UserContext = React.createContext({
     error: null,
     industry: '',
     search: '',
+    name: '',
+    comment: '',
     industries: [],
     results: {},
     pageNeighbors: 0,
@@ -20,6 +22,8 @@ const UserContext = React.createContext({
     handleMoveLeft: () => {},
     handleMoveRight: () => {},
     handleClick: () => {},
+    handleNameChange: () => {},
+    handleCommentChange: () => {},
 })
 
 export default UserContext
@@ -31,6 +35,8 @@ export class UserProvider extends Component {
             error: null,
             industry: '',
             search: '',
+            name: '',
+            comment: '',
             industries: [],
             results: {
                 count: 0,
@@ -144,12 +150,25 @@ export class UserProvider extends Component {
 
     }
 
+    handleNameChange = ev => {
+        const name = ev.target.value
+        this.setState({name})
+    }
+
+    handleCommentChange = ev => {
+        const comment = ev.target.value
+        console.log(comment)
+        this.setState({comment})
+    }
+
 
     render(){
         const value = {
             error: this.state.error,
             industry: this.state.industry,
             industries: this.state.industries,
+            name: this.state.name,
+            comment: this.state.comment,
             results: this.state.results,
             search: this.state.search,
             pageNeighbors: this.state.pageNeighbors,
@@ -165,6 +184,8 @@ export class UserProvider extends Component {
             handleMoveLeft: this.handleMoveLeft,
             handleMoveRight: this.handleMoveRight,
             handleClick: this.handleClick,
+            handleNameChange: this.handleNameChange,
+            handleCommentChange: this.handleCommentChange,
         }
 
         return (

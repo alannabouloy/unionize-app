@@ -1,0 +1,8 @@
+.textarea .label {
+    text-align: center;
+}
+
+.textarea textarea {
+    height: 10vh;
+    width: 70%;
+}

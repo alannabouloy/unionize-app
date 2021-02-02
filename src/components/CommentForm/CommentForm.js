@@ -7,7 +7,7 @@ import './CommentForm.css'
 
 export default function CommentForm(props){
     return (
-        <form id='comment-form'>
+        <form id='comment-form' onSubmit={e => props.onSubmit(e)}>
             <SubHeading text='Leave a Comment!'/>
             <TextInput/>
             <TextArea/>
