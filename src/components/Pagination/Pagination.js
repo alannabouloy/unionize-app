@@ -6,6 +6,7 @@ import PageLink from "../PageLink/PageLink";
 const LEFT_PAGE = "LEFT";
 const RIGHT_PAGE = "RIGHT";
 
+//to return page ranges
 const range = (from, to, step = 1) => {
   let i = from;
   const range = [];
@@ -31,6 +32,7 @@ export default class Pagination extends Component {
     const totalNumbers = pageNeighbors * 2 + 3;
     const totalBlocks = totalNumbers + 2;
 
+    //determines which page numbers to display in nav if not displaying all
     if (totalPages > totalBlocks) {
       const startPage = Math.max(2, currentPage - pageNeighbors);
       const endPage = Math.min(totalPages - 1, currentPage + pageNeighbors);
@@ -46,6 +48,7 @@ export default class Pagination extends Component {
       const hasRightSpill = totalPages - endPage > 1;
       const spillOffset = totalNumbers - (pages.length + 1);
 
+      //determines if Previous or Next buttons shown based on above and returns range of pages numbers.
       switch (true) {
         case hasLeftSpill && !hasRightSpill: {
           const extraPages = range(startPage - spillOffset, startPage - 1);
